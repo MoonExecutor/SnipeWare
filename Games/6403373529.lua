@@ -1,42 +1,5 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-local Window = Rayfield:CreateWindow({
-	Name = "SnipeWare Hub Loader",
-	LoadingTitle = "Loading SnipeWare...",
-	LoadingSubtitle = "Loading Hub...",
-	ConfigurationSaving = {
-		Enabled = true,
-		FolderName = SnipeWareLoader, -- Create a custom folder for your hub/game
-		FileName = "SnipeWare"
-	},
-        Discord = {
-        	Enabled = true,
-        	Invite = "22A6QddM2U", -- The Discord invite code, do not include discord.gg/
-        	RememberJoins = false -- Set this to false to make them join the discord every time they load it up
-        },
-	KeySystem = true, -- Set this to true to use our key system
-	KeySettings = {
-		Title = "SnipeWare Hub",
-		Subtitle = "Key System",
-		Note = "SnipeWare hub is still being worked on.",
-		FileName = "SnipeWareKeySystem",
-		SaveKey = false,
-		GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-		Key = "https://pastebin.com/raw/FnF0qEVx"
-	}
-})
-
-local ScriptsTab = Window:CreateTab("Slap Battles")
-local Section = ScriptsTab:CreateSection("Slap Battles")
-
-local Button = ScriptsTab:CreateButton({
-	Name = "Slap Battles Walkspeed Bypass",
-	Callback = function()
-		 loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
-	end,
-})
-
-if getgenv().Rogue_AlreadyLoaded ~= nil then error("Rogue Hub was already found running or you have other scripts executed!") return else getgenv().Rogue_AlreadyLoaded = 0 end
+if getgenv().Rogue_AlreadyLoaded ~= nil then error("Snipe Ware was already found running or you have other scripts executed!") return else getgenv().Rogue_AlreadyLoaded = 0 end
 
 if game.PlaceId ~= 4543144283 then return end
 
@@ -49,11 +12,11 @@ sound.Volume = 0.5
 local ourColor = Color3.fromRGB(153, 148, 148)
 
 function CheckConfigFile()
-    if not isfile("/Rogue Hub/Configs/Keybind.ROGUEHUB") then return Enum.KeyCode.RightControl else return Enum.KeyCode[game:GetService("HttpService"):JSONDecode(readfile("/Rogue Hub/Configs/Keybind.ROGUEHUB"))["Key"]] or Enum.KeyCode.RightControl end
+    if not isfile("/SnipeWare/Configs/Keybind.SNIPEWARE") then return Enum.KeyCode.RightControl else return Enum.KeyCode[game:GetService("HttpService"):JSONDecode(readfile("/Rogue Hub/Configs/Keybind.ROGUEHUB"))["Key"]] or Enum.KeyCode.RightControl end
 end
 
 local Config = {
-    WindowName = "Rogue Hub | " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+    WindowName = "SnipeWare | " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
     Color = ourColor,
     Keybind = CheckConfigFile()
 }

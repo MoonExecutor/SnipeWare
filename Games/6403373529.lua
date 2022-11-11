@@ -1,5 +1,5 @@
 
-if getgenv().Rogue_AlreadyLoaded ~= nil then error("SnipeWare is already running.") return else getgenv().Rogue_AlreadyLoaded = 0 end
+if getgenv().Snipe_AlreadyLoaded ~= nil then error("SnipeWare is already running.") return else getgenv().Rogue_AlreadyLoaded = 0 end
 
 if game.PlaceId ~= 6403373529 then return end
 

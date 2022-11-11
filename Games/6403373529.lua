@@ -1,7 +1,7 @@
 
-if getgenv().Rogue_AlreadyLoaded ~= nil then error("Snipe Ware was already found running or you have other scripts executed!") return else getgenv().Rogue_AlreadyLoaded = 0 end
+if getgenv().Rogue_AlreadyLoaded ~= nil then error("SnipeWare is already running.") return else getgenv().Rogue_AlreadyLoaded = 0 end
 
-if game.PlaceId ~= 4543144283 then return end
+if game.PlaceId ~= 6403373529 then return end
 
 local sound = Instance.new("Sound")
 sound.Parent = game:GetService("Workspace")
@@ -12,7 +12,7 @@ sound.Volume = 0.5
 local ourColor = Color3.fromRGB(153, 148, 148)
 
 function CheckConfigFile()
-    if not isfile("/SnipeWare/Configs/Keybind.SNIPEWARE") then return Enum.KeyCode.RightControl else return Enum.KeyCode[game:GetService("HttpService"):JSONDecode(readfile("/Rogue Hub/Configs/Keybind.ROGUEHUB"))["Key"]] or Enum.KeyCode.RightControl end
+    if not isfile("/Snipe Ware/Configs/Keybind.SNIPEWARE") then return Enum.KeyCode.RightControl else return Enum.KeyCode[game:GetService("HttpService"):JSONDecode(readfile("/Rogue Hub/Configs/Keybind.ROGUEHUB"))["Key"]] or Enum.KeyCode.RightControl end
 end
 
 local Config = {
@@ -240,7 +240,7 @@ end)
 
     
     if getgenv().settings.walkspeedbypass then
-        if game.PlaceId == 9431156611 and getrawmetatable and hookmetamethod then
+        if game.PlaceId == 6403373529 and getrawmetatable and hookmetamethod then
             local old
             old = hookmetamethod(game, "__namecall", function(self, ...)
                 local method = getnamecallmethod()
@@ -251,7 +251,7 @@ end)
                 
                 return old(self, ...)
             end)
-        elseif game.PlaceId ~= 9431156611 and getrawmetatable and hookmetamethod then
+        elseif game.PlaceId ~= 6403373529 and getrawmetatable and hookmetamethod then
             local old
             old = hookmetamethod(game, "__namecall", function(self, ...)
                 local method = getnamecallmethod()
